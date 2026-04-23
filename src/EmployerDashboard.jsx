@@ -255,12 +255,12 @@ const EmployerDashboard = () => {
 
   return (
     <div className="min-h-screen flex bg-transparent relative overflow-hidden transition-colors duration-300">
-      {/* Background Decorations - only visible in dark mode via CSS or conditional */}
+      {/* Background Decorations */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-pulse pointer-events-none opacity-0 dark:opacity-100"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px] animate-pulse pointer-events-none opacity-0 dark:opacity-100" style={{animationDelay: '2s'}}></div>
 
       {/* Sidebar */}
-      <aside className="w-72 sidebar-bg hidden md:flex flex-col sticky top-0 h-screen z-20">
+      <aside className="w-72 bg-white/70 dark:bg-white/5 backdrop-blur-xl dark:backdrop-blur-2xl border-r border-gray-200 dark:border-white/10 hidden md:flex flex-col sticky top-0 h-screen z-20 transition-all duration-300">
         <div className="p-8">
           <h2 className="text-3xl font-black text-primary tracking-tighter">Employer<span className="text-slate-900 dark:text-white">Hub</span></h2>
         </div>
@@ -268,14 +268,14 @@ const EmployerDashboard = () => {
         <nav className="flex-1 px-4 space-y-3 mt-4">
           <button 
             onClick={() => setActiveTab('post')}
-            className={`w-full flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all ${activeTab === 'post' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-gray-200 hover:bg-white/10'}`}
+            className={`w-full flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all ${activeTab === 'post' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10'}`}
           >
             <span className="mr-3 text-2xl">📝</span> {t.employerTab_post}
           </button>
           
           <button 
             onClick={() => setActiveTab('apps')}
-            className={`w-full flex items-center justify-between px-4 py-3.5 text-sm font-bold rounded-2xl transition-all ${activeTab === 'apps' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-gray-200 hover:bg-white/10'}`}
+            className={`w-full flex items-center justify-between px-4 py-3.5 text-sm font-bold rounded-2xl transition-all ${activeTab === 'apps' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10'}`}
           >
             <div className="flex items-center">
               <span className="mr-3 text-2xl">📩</span> {t.employerTab_apps}
@@ -287,30 +287,30 @@ const EmployerDashboard = () => {
           
           <button 
             onClick={() => setActiveTab('my-jobs')}
-            className={`w-full flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all ${activeTab === 'my-jobs' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-gray-200 hover:bg-white/10'}`}
+            className={`w-full flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all ${activeTab === 'my-jobs' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10'}`}
           >
             <span className="mr-3 text-2xl">💼</span> {t.employerTab_jobs}
           </button>
           
           <button 
             onClick={() => setActiveTab('transactions')}
-            className={`w-full flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all ${activeTab === 'transactions' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-gray-200 hover:bg-white/10'}`}
+            className={`w-full flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all ${activeTab === 'transactions' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10'}`}
           >
             <span className="mr-3 text-2xl">💳</span> {t.employerTab_transactions}
           </button>
           
           <button 
             onClick={() => navigate('/chat')}
-            className="w-full flex items-center px-4 py-3.5 text-sm font-bold text-gray-200 hover:bg-white/10 rounded-2xl transition-all"
+            className="w-full flex items-center px-4 py-3.5 text-sm font-bold text-slate-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10 rounded-2xl transition-all"
           >
             <span className="mr-3 text-2xl">💬</span> {t.freelancerTab_chat}
           </button>
         </nav>
 
-        <div className="p-4 border-t border-white/10">
+        <div className="p-4 border-t border-gray-200 dark:border-white/10">
           <button 
             onClick={handleLogout}
-            className="w-full flex items-center px-4 py-3 text-sm font-medium text-red-400 hover:bg-red-500/10 rounded-xl transition-all"
+            className="w-full flex items-center px-4 py-3 text-sm font-bold text-red-500 hover:bg-red-500/10 rounded-xl transition-all"
           >
             <span className="mr-3 text-xl">🚪</span> {t.logout}
           </button>
@@ -320,7 +320,7 @@ const EmployerDashboard = () => {
       {/* Main Content */}
       <main className="flex-1 flex flex-col min-w-0 relative z-10">
         {/* Top Navbar */}
-        <header className="h-16 header-bg flex items-center justify-between px-4 md:px-8 sticky top-0 z-10">
+        <header className="h-16 bg-white/40 dark:bg-white/5 backdrop-blur-md dark:backdrop-blur-xl border-b border-gray-200 dark:border-white/10 flex items-center justify-between px-4 md:px-8 sticky top-0 z-10 transition-all duration-300">
           <div className="md:hidden font-bold text-xl text-primary tracking-tighter">EmployerHub</div>
           <div className="flex-1"></div>
           <div className="flex items-center space-x-4">
@@ -335,39 +335,39 @@ const EmployerDashboard = () => {
 
         <div className="p-4 md:p-8 overflow-y-auto">
           {activeTab === 'post' && (
-            <div className="max-w-2xl mx-auto glass-card p-8 rounded-3xl space-y-6 animate__animated animate__fadeIn">
+            <div className="max-w-2xl mx-auto bg-white/70 dark:bg-white/5 backdrop-blur-xl dark:backdrop-blur-2xl border border-gray-200 dark:border-white/10 shadow-xl dark:shadow-2xl p-8 rounded-3xl space-y-6 animate__animated animate__fadeIn transition-all duration-300">
               <div className="text-center">
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{t.employerTab_post}</h3>
                 <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Yangi ish e'lonini yarating va mutaxassislarni toping</p>
               </div>
               <form onSubmit={handlePostJob} className="space-y-4">
                 <div className="space-y-1.5">
-                  <label className="text-sm font-medium text-gray-300 ml-1">{t.jobTitle}</label>
+                  <label className="text-sm font-bold text-slate-700 dark:text-gray-300 ml-1">{t.jobTitle}</label>
                   <input 
                     type="text" 
                     placeholder={t.jobTitle} 
                     value={title} 
                     onChange={(e) => setTitle(e.target.value)} 
-                    className="w-full"
+                    className="w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-sm font-medium text-gray-300 ml-1">{t.jobDesc}</label>
+                  <label className="text-sm font-bold text-slate-700 dark:text-gray-300 ml-1">{t.jobDesc}</label>
                   <textarea 
                     placeholder={t.jobDesc} 
                     value={description} 
                     onChange={(e) => setDescription(e.target.value)} 
-                    className="w-full min-h-[120px] resize-none"
+                    className="w-full min-h-[120px] bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-sm font-medium text-gray-300 ml-1">{t.budget} ($)</label>
+                  <label className="text-sm font-bold text-slate-700 dark:text-gray-300 ml-1">{t.budget} ($)</label>
                   <input 
                     type="number" 
                     placeholder="500" 
                     value={budget} 
                     onChange={(e) => setBudget(e.target.value)} 
-                    className="w-full"
+                    className="w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                   />
                 </div>
                 <button 
@@ -385,34 +385,34 @@ const EmployerDashboard = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 animate__animated animate__fadeIn">
               {applications.length === 0 ? (
                 <div className="col-span-full py-20 text-center space-y-4">
-                  <span className="text-6xl block text-white/20">📭</span>
+                  <span className="text-6xl block opacity-20">📭</span>
                   <p className="text-gray-400 font-medium">{t.noApps}</p>
                 </div>
               ) : (
                 applications.map(app => (
-                  <div key={app.id} className="glass-card p-6 rounded-3xl hover:bg-white/10 transition-all flex flex-col group">
+                  <div key={app.id} className="bg-white/70 dark:bg-white/5 backdrop-blur-xl dark:backdrop-blur-2xl border border-gray-200 dark:border-white/10 shadow-lg dark:shadow-2xl p-6 rounded-3xl hover:bg-white/80 dark:hover:bg-white/10 transition-all flex flex-col group">
                     <div className="flex justify-between items-start mb-4">
                       <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
                           {app.freelancerName?.[0] || 'F'}
                         </div>
                         <div>
-                          <h4 className="font-bold text-white leading-none">{app.freelancerName}</h4>
-                          <span className="text-[10px] text-gray-400">{app.freelancerEmail}</span>
+                          <h4 className="font-bold text-slate-900 dark:text-white leading-none">{app.freelancerName}</h4>
+                          <span className="text-[10px] text-gray-500 dark:text-gray-400">{app.freelancerEmail}</span>
                         </div>
                       </div>
                       <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-lg ${
-                        app.status === 'accepted' ? 'bg-blue-500/20 text-blue-400' :
-                        app.status === 'paid' ? 'bg-green-500/20 text-green-400' :
-                        app.status === 'rejected' ? 'bg-red-500/20 text-red-400' : 'bg-orange-500/20 text-orange-400'
+                        app.status === 'accepted' ? 'bg-blue-500/20 text-blue-500' :
+                        app.status === 'paid' ? 'bg-green-500/20 text-green-500' :
+                        app.status === 'rejected' ? 'bg-red-500/20 text-red-500' : 'bg-orange-500/20 text-orange-500'
                       }`}>
                         {app.status || 'pending'}
                       </span>
                     </div>
 
-                    <div className="mb-4 bg-white/5 p-3 rounded-xl border border-white/5">
-                       <p className="text-xs text-gray-400 mb-1">Loyiha:</p>
-                       <p className="text-sm font-bold text-white">{app.jobTitle}</p>
+                    <div className="mb-4 bg-gray-100 dark:bg-white/5 p-3 rounded-xl border border-gray-200 dark:border-white/5">
+                       <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Loyiha:</p>
+                       <p className="text-sm font-bold text-slate-900 dark:text-white">{app.jobTitle}</p>
                     </div>
 
                     <div className="flex gap-2 mt-auto">
@@ -426,7 +426,7 @@ const EmployerDashboard = () => {
                           </button>
                           <button 
                             onClick={() => handleStatus(app.id, 'rejected')}
-                            className="flex-1 py-2 bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white text-xs font-bold rounded-lg transition-all"
+                            className="flex-1 py-2 bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white text-xs font-bold rounded-lg transition-all"
                           >
                             {t.reject}
                           </button>
@@ -435,14 +435,14 @@ const EmployerDashboard = () => {
                       {app.status === 'accepted' && (
                         <button 
                           onClick={() => openPayment(app)}
-                          className="flex-1 py-2 bg-yellow-500 hover:bg-yellow-600 text-black text-xs font-bold rounded-lg transition-all"
+                          className="flex-1 py-2 bg-yellow-400 hover:bg-yellow-500 text-slate-900 text-xs font-bold rounded-lg transition-all"
                         >
                           💸 {t.payNow}
                         </button>
                       )}
                       <button 
                         onClick={() => startChat(app.freelancerEmail, app.freelancerId, app.freelancerName)}
-                        className="p-2 bg-white/5 hover:bg-white/10 rounded-lg text-white transition-all"
+                        className="p-2 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 rounded-lg transition-all"
                         title={t.chatBtn}
                       >
                         💬
@@ -458,20 +458,20 @@ const EmployerDashboard = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate__animated animate__fadeIn">
               {myJobs.length === 0 ? (
                 <div className="col-span-full py-20 text-center space-y-4">
-                  <span className="text-6xl block text-white/20">💼</span>
+                  <span className="text-6xl block opacity-20">💼</span>
                   <p className="text-gray-400 font-medium">{t.noJobs}</p>
                 </div>
               ) : (
                 myJobs.map(job => (
-                  <div key={job.id} className="glass-card p-6 rounded-3xl hover:bg-white/10 transition-all flex flex-col group relative overflow-hidden">
+                  <div key={job.id} className="bg-white/70 dark:bg-white/5 backdrop-blur-xl dark:backdrop-blur-2xl border border-gray-200 dark:border-white/10 shadow-lg dark:shadow-2xl p-6 rounded-3xl hover:bg-white/80 dark:hover:bg-white/10 transition-all flex flex-col group relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-2">
                        <span className="text-[10px] font-bold bg-primary/20 text-primary px-2 py-0.5 rounded-full border border-primary/20">OPEN</span>
                     </div>
                     <div className="flex justify-between items-start mb-3">
-                      <h4 className="font-bold text-white group-hover:text-primary transition-colors">{job.title}</h4>
+                      <h4 className="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{job.title}</h4>
                     </div>
-                    <p className="text-gray-400 text-xs line-clamp-3 mb-6 flex-1">{job.description}</p>
-                    <div className="flex justify-between items-center pt-4 border-t border-white/5">
+                    <p className="text-gray-500 dark:text-gray-400 text-xs line-clamp-3 mb-6 flex-1">{job.description}</p>
+                    <div className="flex justify-between items-center pt-4 border-t border-gray-100 dark:border-white/5">
                       <span className="text-xl font-black text-primary">${job.budget}</span>
                       <span className="text-[10px] text-gray-500 uppercase font-bold">
                         {job.createdAt?.toDate ? new Date(job.createdAt.toDate()).toLocaleDateString() : 'Yaqinda'}
@@ -486,44 +486,44 @@ const EmployerDashboard = () => {
           {activeTab === 'transactions' && (
             <div className="max-w-4xl mx-auto space-y-6 animate__animated animate__fadeIn">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="glass-card p-6 rounded-3xl text-center border-l-4 border-primary">
-                  <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">{lang === 'uz' ? 'Jami to\'langan' : 'Всего выплачено'}</p>
+                <div className="bg-white/70 dark:bg-white/5 backdrop-blur-xl border-l-4 border-primary p-6 rounded-3xl text-center shadow-lg transition-all duration-300">
+                  <p className="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">{lang === 'uz' ? 'Jami to\'langan' : 'Всего выплачено'}</p>
                   <p className="text-3xl font-black text-primary">
                     ${transactions.reduce((sum, tx) => sum + Number(tx.amount || 0), 0)}
                   </p>
                 </div>
-                <div className="glass-card p-6 rounded-3xl text-center border-l-4 border-blue-500">
-                  <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">{lang === 'uz' ? 'Loyihalar' : 'Проекты'}</p>
-                  <p className="text-3xl font-black text-blue-400">{transactions.length}</p>
+                <div className="bg-white/70 dark:bg-white/5 backdrop-blur-xl border-l-4 border-blue-500 p-6 rounded-3xl text-center shadow-lg transition-all duration-300">
+                  <p className="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">{lang === 'uz' ? 'Loyihalar' : 'Проекты'}</p>
+                  <p className="text-3xl font-black text-blue-500 dark:text-blue-400">{transactions.length}</p>
                 </div>
-                <div className="glass-card p-6 rounded-3xl text-center border-l-4 border-purple-500">
-                  <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">{lang === 'uz' ? 'Oxirgi to\'lov' : 'Последняя оплата'}</p>
-                  <p className="text-3xl font-black text-purple-400">${transactions[0]?.amount || 0}</p>
+                <div className="bg-white/70 dark:bg-white/5 backdrop-blur-xl border-l-4 border-purple-500 p-6 rounded-3xl text-center shadow-lg transition-all duration-300">
+                  <p className="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">{lang === 'uz' ? 'Oxirgi to\'lov' : 'Последняя оплата'}</p>
+                  <p className="text-3xl font-black text-purple-500 dark:text-purple-400">${transactions[0]?.amount || 0}</p>
                 </div>
               </div>
 
-              <div className="glass-card rounded-3xl overflow-hidden">
-                <div className="p-6 border-b border-white/10 flex justify-between items-center">
-                   <h3 className="font-bold text-white">{t.employerTab_transactions}</h3>
+              <div className="bg-white/70 dark:bg-white/5 backdrop-blur-xl dark:backdrop-blur-2xl border border-gray-200 dark:border-white/10 shadow-xl dark:shadow-2xl rounded-3xl overflow-hidden transition-all duration-300">
+                <div className="p-6 border-b border-gray-200 dark:border-white/10 flex justify-between items-center">
+                   <h3 className="font-bold text-slate-900 dark:text-white">{t.employerTab_transactions}</h3>
                 </div>
                 
                 {transactions.length === 0 ? (
                   <div className="py-20 text-center text-gray-500">{t.noEarnings}</div>
                 ) : (
-                  <div className="divide-y divide-white/5">
+                  <div className="divide-y divide-gray-100 dark:divide-white/5">
                     {transactions.map(tx => (
-                      <div key={tx.id} className="p-6 flex justify-between items-center hover:bg-white/5 transition-colors">
+                      <div key={tx.id} className="p-6 flex justify-between items-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
                         <div className="flex items-center space-x-4">
-                          <div className="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center text-red-400 text-xl font-bold">
+                          <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-500 text-xl font-bold">
                             -
                           </div>
                           <div>
-                            <strong className="block text-white font-bold">{tx.jobTitle}</strong>
+                            <strong className="block text-slate-900 dark:text-white font-bold">{tx.jobTitle}</strong>
                             <span className="text-xs text-gray-500">{t.toFreelancer}: {tx.toName || tx.toEmail}</span>
                           </div>
                         </div>
                         <div className="text-right">
-                          <strong className="block text-xl font-black text-red-400">-${tx.amount}</strong>
+                          <strong className="block text-xl font-black text-red-500">-${tx.amount}</strong>
                           <span className="text-[10px] text-gray-500 font-bold uppercase">
                              {tx.createdAt?.toDate ? new Date(tx.createdAt.toDate()).toLocaleDateString() : 'Yaqinda'}
                           </span>

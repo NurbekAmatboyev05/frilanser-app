@@ -10,84 +10,15 @@
   font-family: 'Outfit', 'Inter', system-ui, sans-serif;
 }
 
-/* Base styles */
+/* Faqat global fon va rang o'tish effektini qoldiramiz */
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: white;
-  color: #0f172a; /* slate-900 */
-  transition: background-color 0.3s, color 0.3s;
+  @apply bg-white dark:bg-dark-bg text-slate-900 dark:text-gray-100 transition-colors duration-300;
   overflow-x: hidden;
 }
 
-.dark body {
-  background-color: var(--color-dark-bg);
-  color: #f3f4f6; /* gray-100 */
-}
-
-/* Glassmorphism Utilities */
-.glass-card {
-  background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border: 1px solid #e2e8f0; /* gray-200 */
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s;
-}
-
-.dark .glass-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(40px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-/* Sidebar & Header */
-.sidebar-bg {
-  background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border-right: 1px solid #e2e8f0;
-  transition: all 0.3s;
-}
-.dark .sidebar-bg {
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(40px);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.header-bg {
-  background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #e2e8f0;
-  transition: all 0.3s;
-}
-.dark .header-bg {
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Input Styles */
-input, textarea, select {
-  background-color: #f9fafb; /* gray-50 */
-  border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  padding: 0.5rem 1rem;
-  color: #0f172a;
-  transition: all 0.3s;
-}
-
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(20, 168, 0, 0.5); /* primary/50 */
-}
-
-.dark input, .dark textarea, .dark select {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-/* Custom Scrollbar */
+/* Scrollbar ham Tailwind orqali boshqariladi, lekin asosiy struktura uchun minimal CSS */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -95,15 +26,5 @@ input:focus, textarea:focus, select:focus {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #d1d5db; /* gray-300 */
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: #9ca3af; /* gray-400 */
-}
-.dark ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.dark ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  @apply bg-gray-300 dark:bg-white/10 rounded-full hover:bg-gray-400 dark:hover:bg-white/20;
 }
