@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { auth } from './firebase';
+import { auth, db } from './firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
 import { useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import 'animate.css';
@@ -21,7 +22,15 @@ const Login = () => {
     setLoading(true);
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const res = await signInWithEmailAndPassword(auth, email, password);
+      const user = res.user;
+
+      // Rolni Firestore dan darhol olish va keshga saqlash
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      if (userDoc.exists()) {
+        const userRole = userDoc.data().role;
+        localStorage.setItem(`role_${user.uid}`, userRole);
+      }
 
       Swal.fire({
         title: t.welcome,
