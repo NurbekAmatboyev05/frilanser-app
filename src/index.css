@@ -14,45 +14,77 @@
 body {
   margin: 0;
   min-height: 100vh;
-  @apply bg-white text-slate-900 transition-colors duration-300;
+  background-color: white;
+  color: #0f172a; /* slate-900 */
+  transition: background-color 0.3s, color 0.3s;
   overflow-x: hidden;
 }
 
 .dark body {
-  @apply bg-dark-bg text-gray-100;
+  background-color: var(--color-dark-bg);
+  color: #f3f4f6; /* gray-100 */
 }
 
 /* Glassmorphism Utilities */
 .glass-card {
-  @apply bg-white/70 backdrop-blur-xl border border-gray-200 shadow-xl transition-all duration-300;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid #e2e8f0; /* gray-200 */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
 }
 
 .dark .glass-card {
-  @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 /* Sidebar & Header */
 .sidebar-bg {
-  @apply bg-white/70 backdrop-blur-xl border-r border-gray-200 transition-all duration-300;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid #e2e8f0;
+  transition: all 0.3s;
 }
 .dark .sidebar-bg {
-  @apply bg-white/5 backdrop-blur-2xl border-white/10;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(40px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header-bg {
-  @apply bg-white/40 backdrop-blur-md border-b border-gray-200 transition-all duration-300;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  transition: all 0.3s;
 }
 .dark .header-bg {
-  @apply bg-white/5 backdrop-blur-xl border-white/10;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Input Styles */
 input, textarea, select {
-  @apply bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all;
+  background-color: #f9fafb; /* gray-50 */
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  color: #0f172a;
+  transition: all 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(20, 168, 0, 0.5); /* primary/50 */
 }
 
 .dark input, .dark textarea, .dark select {
-  @apply bg-white/5 border border-white/10 text-white;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 /* Custom Scrollbar */
@@ -63,14 +95,15 @@ input, textarea, select {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 rounded-full;
+  background-color: #d1d5db; /* gray-300 */
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400;
+  background-color: #9ca3af; /* gray-400 */
 }
 .dark ::-webkit-scrollbar-thumb {
-  @apply bg-white/10;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .dark ::-webkit-scrollbar-thumb:hover {
-  @apply bg-white/20;
+  background-color: rgba(255, 255, 255, 0.2);
 }
