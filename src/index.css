@@ -6,30 +6,27 @@
   --color-dark-bg: #030712;
 }
 
-/* Tailwind v4 Dark mode variantini saqlab qolamiz */
+/* Tailwind v4 Dark mode variant */
 @variant dark (&:where(.dark, .dark *));
 
 :root {
   font-family: 'Outfit', 'Inter', system-ui, sans-serif;
 }
 
-/* Base styles - Standart CSS ishlatamiz, @apply emas */
 body {
   margin: 0;
   min-height: 100vh;
   background-color: white;
-  color: #0f172a; /* slate-900 */
+  color: #0f172a;
   transition: background-color 0.3s, color 0.3s;
   overflow-x: hidden;
 }
 
-/* Tungi rejim uchun standart CSS selector */
 .dark body {
   background-color: var(--color-dark-bg);
-  color: #f3f4f6; /* gray-100 */
+  color: #f3f4f6;
 }
 
-/* Scrollbar uchun ham standart CSS */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -37,11 +34,11 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #d1d5db; /* gray-300 */
+  background-color: #d1d5db;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #9ca3af; /* gray-400 */
+  background-color: #9ca3af;
 }
 .dark ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.1);
