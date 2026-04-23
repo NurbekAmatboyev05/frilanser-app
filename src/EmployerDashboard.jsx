@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { useLanguage } from './LanguageContext';
 import translations from './translations';
 import LangSwitcher from './LangSwitcher';
+import ThemeToggle from './ThemeToggle';
 
 // NEW IMPORTS
 import PaymentModal from './components/PaymentModal';
@@ -253,15 +254,15 @@ const EmployerDashboard = () => {
   const pendingAppsCount = applications.filter(a => !a.status || a.status === 'pending').length;
 
   return (
-    <div className="min-h-screen flex bg-dark-bg text-white relative overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-pulse pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px] animate-pulse pointer-events-none" style={{animationDelay: '2s'}}></div>
+    <div className="min-h-screen flex bg-transparent relative overflow-hidden transition-colors duration-300">
+      {/* Background Decorations - only visible in dark mode via CSS or conditional */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-pulse pointer-events-none opacity-0 dark:opacity-100"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px] animate-pulse pointer-events-none opacity-0 dark:opacity-100" style={{animationDelay: '2s'}}></div>
 
       {/* Sidebar */}
-      <aside className="w-72 bg-white/5 backdrop-blur-2xl border-r border-white/10 hidden md:flex flex-col sticky top-0 h-screen z-20">
+      <aside className="w-72 sidebar-bg hidden md:flex flex-col sticky top-0 h-screen z-20">
         <div className="p-8">
-          <h2 className="text-3xl font-black text-primary tracking-tighter">Employer<span className="text-white">Hub</span></h2>
+          <h2 className="text-3xl font-black text-primary tracking-tighter">Employer<span className="text-slate-900 dark:text-white">Hub</span></h2>
         </div>
         
         <nav className="flex-1 px-4 space-y-3 mt-4">
@@ -319,11 +320,12 @@ const EmployerDashboard = () => {
       {/* Main Content */}
       <main className="flex-1 flex flex-col min-w-0 relative z-10">
         {/* Top Navbar */}
-        <header className="h-16 bg-white/5 backdrop-blur-xl border-b border-white/10 flex items-center justify-between px-4 md:px-8 sticky top-0 z-10">
+        <header className="h-16 header-bg flex items-center justify-between px-4 md:px-8 sticky top-0 z-10">
           <div className="md:hidden font-bold text-xl text-primary tracking-tighter">EmployerHub</div>
           <div className="flex-1"></div>
           <div className="flex items-center space-x-4">
             <BalanceCard />
+            <ThemeToggle />
             <LangSwitcher />
             <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold border border-primary/20">
               {auth.currentUser?.displayName?.[0] || auth.currentUser?.email?.[0]?.toUpperCase()}
@@ -335,8 +337,8 @@ const EmployerDashboard = () => {
           {activeTab === 'post' && (
             <div className="max-w-2xl mx-auto glass-card p-8 rounded-3xl space-y-6 animate__animated animate__fadeIn">
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-white">{t.employerTab_post}</h3>
-                <p className="text-gray-400 text-sm mt-1">Yangi ish e'lonini yarating va mutaxassislarni toping</p>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{t.employerTab_post}</h3>
+                <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Yangi ish e'lonini yarating va mutaxassislarni toping</p>
               </div>
               <form onSubmit={handlePostJob} className="space-y-4">
                 <div className="space-y-1.5">

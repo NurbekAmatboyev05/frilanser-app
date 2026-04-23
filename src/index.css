@@ -3,38 +3,68 @@
 @theme {
   --color-primary: #14a800;
   --color-primary-hover: #128a00;
-  --color-dark-bg: #030712; /* Deep Dark */
+  --color-dark-bg: #030712;
 }
 
 :root {
   font-family: 'Outfit', 'Inter', system-ui, sans-serif;
-  color-scheme: dark;
 }
 
+/* Base styles that react to .dark class on html/root */
 body {
   margin: 0;
   min-height: 100vh;
-  @apply bg-dark-bg text-gray-100;
+  @apply bg-white text-slate-900 transition-colors duration-300;
   overflow-x: hidden;
 }
 
-/* Glassmorphism Dark Utility */
+.dark body {
+  @apply bg-dark-bg text-gray-100;
+}
+
+/* Glassmorphism Utilities */
 .glass-card {
+  @apply bg-white/70 backdrop-blur-xl border border-gray-200 shadow-xl transition-all duration-300;
+}
+
+.dark .glass-card {
   @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl;
 }
 
-/* Input Styles for Dark Theme */
-input, textarea, select {
-  @apply bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all;
+/* Sidebar & Header */
+.sidebar-bg {
+  @apply bg-white/70 backdrop-blur-xl border-r border-gray-200 transition-all duration-300;
+}
+.dark .sidebar-bg {
+  @apply bg-white/5 backdrop-blur-2xl border-white/10;
 }
 
-/* Custom Scrollbar for Dark Theme */
+.header-bg {
+  @apply bg-white/40 backdrop-blur-md border-b border-gray-200 transition-all duration-300;
+}
+.dark .header-bg {
+  @apply bg-white/5 backdrop-blur-xl border-white/10;
+}
+
+/* Input Styles */
+input, textarea, select {
+  @apply bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all;
+}
+
+.dark input, .dark textarea, .dark select {
+  @apply bg-white/5 border border-white/10 text-white;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-dark-bg;
+  @apply bg-transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-white/10 rounded-full hover:bg-white/20;
+  @apply bg-gray-300 rounded-full hover:bg-gray-400;
+}
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-white/10 hover:bg-white/20;
 }
